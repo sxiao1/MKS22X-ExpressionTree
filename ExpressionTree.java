@@ -24,7 +24,7 @@ public class ExpressionTree{
       ans = ans + getValue();
     }
     else{
-      ans = ans + getLeft().toStringPostfix() + " " + getRight().toStringPostfix() + " " + getOp();
+      ans = ans + getLeft().toStringPostfix() + " " + getRight().toStringPostfix() + " " + getOp(); // in the order of when the numbers come first and then the operation follows
     }
     /*you are to write this method*/
     return ans;
@@ -34,8 +34,15 @@ public class ExpressionTree{
   /* The sample tree would be: "+ 3 * 2 10"     */
 
   public String toStringPrefix(){
+    String ans = "";
+    if(isValue()){
+      ans = ans + getValue();
+    }
+    else{
+      ans = ans + getOp() + " " + getLeft().toStringPrefix() + " " + getRight().toStringPrefix();
+    }
     /*you are to write this method*/
-    return "";
+    return ans;
   }
 
   /*return the value of the specified expression tree*/
