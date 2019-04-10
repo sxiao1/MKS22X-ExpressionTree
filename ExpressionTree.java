@@ -47,14 +47,35 @@ public class ExpressionTree{
 
   /*return the value of the specified expression tree*/
   public double evaluate(){
+    if(isValue()){
+      return getValue();
+    }
+    else{
+      return apply(getOp(), getLeft().evaluate(), getRight().evaluate());
+    }
     /*you are to write this method*/
-    return 0.0;
   }
 
   /*use the correct operator on both a and b, and return that value*/
   private double apply(char op, double a, double b){
+    double ans = 0;
+    if(op == '-'){
+      ans = a - b;
+    }
+    else if(op == '+'){
+      ans = a + b;
+    }
+    else if(op == '/'){
+      ans = a / b;
+    }
+    else if(op == '*'){
+      ans = a * b;
+    }
+    else{
+      ans = a % b;
+    }
     /*you are to write this method*/
-    return 0.0;
+    return ans;
   }
 
     ////////////////////ONLY EDIT ABOVE THIS LINE////////////////////
